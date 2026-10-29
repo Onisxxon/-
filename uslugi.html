@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги и Проекты | ООО ИСИТ</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="header-left">
+                <button class="burger-menu-btn" id="open-sidebar" aria-label="Открыть меню">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="logo"><span class="logo-accent">ИС</span>ИТ</div>
+            </div>
+            
+            <nav class="main-nav">
+                <a href="index.html">Главная</a>
+                <a href="news.html">Новости</a>
+                <a href="about.html">О компании</a>
+                <a href="gallery.html">Галерея</a>
+                <a href="uslugi.html">Услуги</a>
+                <a href="product.html">Продукция</a>
+            </nav>
+            
+            <div class="header-right-controls">
+                <button class="icon-btn" id="btn-search-open" title="Поиск на сайте">🔍</button>
+                <button class="icon-btn" id="btn-question-open" title="Задать вопрос">❓</button>
+                <a href="tel:+73422160061" class="header-phone">+7 (342) 216-00-61</a>
+                <button class="accent-btn" id="btn-call-top">Заказать звонок</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+    <aside class="site-sidebar" id="site-sidebar">
+        <div class="sidebar-header">
+            <div class="logo"><span class="logo-accent">ИС</span>ИТ</div>
+            <button class="close-sidebar-btn" id="close-sidebar" aria-label="Закрыть меню">✕</button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="index.html">Главная</a>
+            <a href="news.html">Новости</a>
+            <a href="about.html">О компании</a>
+            <a href="gallery.html">Галерея</a>
+            <a href="uslugi.html">Услуги</a>
+            <a href="product.html">Продукция</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="accent-btn sidebar-call-btn" id="btn-call-sidebar">Заказать звонок</button>
+            <a href="tel:+73422160061" class="sidebar-phone">+7 (342) 216-00-61</a>
+           <p class="sidebar-address">
+    📍 <a href="https://yandex.ru/maps/?text=Пермь, ул. Чернышевского, д. 5" target="_blank" style="color: inherit; text-decoration: none;">г. Пермь, ул. Чернышевского, д. 5</a>
+</p>
+            <p class="sidebar-email" href="mailto:ist@ist.perm.ru">✉️ ist@ist.perm.ru</p>
+        </div>
+    </aside>
+
+    <div class="modal-overlay" id="modal-call">
+        <div class="modal-window">
+            <button class="modal-close">✕</button>
+            <h3>Заказать звонок</h3>
+            <p>Представьтесь, мы вам перезвоним.</p>
+            <form id="form-call">
+                <div class="input-group">
+                    <label>Ваше имя *</label>
+                    <input type="text" name="name" required placeholder="Иван Иванов">
+                </div>
+                <div class="input-group">
+                    <label>Телефон *</label>
+                    <input type="tel" name="phone" required placeholder="+7 (999) 000-00-00">
+                </div>
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-question">
+        <div class="modal-window">
+            <button class="modal-close">✕</button>
+            <h3>Задать вопрос</h3>
+            <p>Менеджеры компании с радостью ответят на ваши вопросы.</p>
+            <form id="form-question">
+                <div class="input-group">
+                    <label>Ваше имя *</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label>Телефон *</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" name="email">
+                </div>
+                <div class="input-group">
+                    <label>Сообщение *</label>
+                    <textarea name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-search">
+        <div class="modal-window search-window">
+            <button class="modal-close">✕</button>
+            <h3>Поиск по сайту</h3>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Введите ключевое слово (например: СКУД, связь)...">
+                <button id="btn-search-execute" class="submit-btn">Найти</button>
+            </div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+
+    <main class="services-page-main">
+        
+        <section class="services-section">
+            <div class="section-container article-max-width">
+                <span class="badge">Сервис и обслуживание</span>
+                <h1 class="page-title">Наши услуги</h1>
+                
+                <div class="services-content-text">
+                    <p>ООО «ИСИТ» осуществляет полный спектр услуг по гарантийному, послегарантийному техническому обслуживанию и качественному ремонту сложного телекоммуникационного оборудования связи.</p>
+                    
+                    <div class="services-spec-block">
+                        <h3>Ключевые направления сервисного центра:</h3>
+                        <ul class="custom-services-list">
+                            <li>Ремонт, диагностика и комплексное обслуживание линейных, спутниковых (IP), GSM и CDMA-таксофонов.</li>
+                            <li>Техническая поддержка и модернизация интернет-терминалов для пунктов коллективного доступа (ПКД).</li>
+                            <li>Обслуживание и обновление ПО технических центров управления абонентскими терминалами.</li>
+                            <li>Поставка оригинальных запасных частей, плат, узлов связи и комплектующих напрямую со склада.</li>
+                        </ul>
+                    </div>
+
+                    <p>Благодаря штату квалифицированных инженеров и современной ремонтной базе, мы производим глубокую модернизацию оборудования прошлых поколений, адаптируя его под стандарты современных цифровых систем связи.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section-split">
+            <div class="section-container article-max-width">
+                <span class="badge">Опыт и кейсы</span>
+                <h2 class="section-split-title">Реализованные проекты</h2>
+    <div class="services-content-text mb-medium">
+ 
+    <h3>Проект «Военная связь»</h3>
+    
+    <div class="project-intro">
+        <p>Проект «ВоенСвязь» предназначен для видеосвязи военнослужащих, проходящих воинскую службу в подразделениях МО РФ, с родственниками и близкими. Видеосвязь осуществляется с использованием специализированных видеотерминалов.</p>
+    </div>
+
+    <div class="features-block">
+        <p><strong>Видеотерминал обеспечивает:</strong></p>
+        <div class="numbered-list">
+            <div class="list-item"><span class="number">01</span><p>Входящую и исходящую аудио- или видеосвязь с любым аналогичным видеотерминалом сети или домашним компьютером.</p></div>
+            <div class="list-item"><span class="number">02</span><p>Отправку электронной почты.</p></div>
+            <div class="list-item"><span class="number">03</span><p>Доступ в интернет.</p></div>
+            <div class="list-item"><span class="number">04</span><p>Тарификацию услуг с использованием чиповой предоплаченной карты.</p></div>
+            <div class="list-item"><span class="number">05</span><p>Бесплатный доступ к информационным и справочным ресурсам.</p></div>
+        </div>
+    </div>
+
+    <div class="project-details">
+        <p>Для осуществления видеопереговоров родственник должен зарегистрироваться на сайте «ВоенСвязь», скачать программу для видеосвязи или подойти в условленное время к публичному видеотерминалу. Военнослужащий для вызова набирает номер домашнего компьютера.</p>
+        
+        <p>Оплата услуги производится по картам (стоимость 1 минуты — 5 рублей). Видеотерминалы устанавливаются оператором в казармах, клубах воинских частей и подразделений.</p>
+        
+        <p class="contact-highlight">Для приобретения видеотерминала направьте заявку с реквизитами на <a>ist@ist.perm.ru</a> или по факсу (342) 216-00-61.</p>
+    </div>
+</div>
+
+                <div class="projects-images-grid">
+                    <div class="project-gallery-item">
+                        <img src="Фото/voen_svyaz_term.png" alt="Проект Военная Связь - Оборудование" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\' viewBox=\'0 0 150 100\'><rect width=\'100%\' height=\'100%\' fill=\'%231f2937\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%239ca3af\' font-size=\'10\'>Фото проекта 1</text></svg>'">
+                    </div>
+                    <div class="project-gallery-item">
+                        <img src="Фото/voen_svyaz.png" alt="Проект Военная Связь - Монтаж" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\' viewBox=\'0 0 150 100\'><rect width=\'100%\' height=\'100%\' fill=\'%231f2937\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%239ca3af\' font-size=\'10\'>Фото проекта 2</text></svg>'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="lightbox-overlay" id="lightbox-overlay" aria-hidden="true">
+            <button class="lightbox-close-btn" id="lightbox-close" aria-label="Закрыть">✕</button>
+            
+            <button class="lightbox-nav-btn prev-btn" id="lightbox-prev" aria-label="Предыдущее фото">‹</button>
+            <button class="lightbox-nav-btn next-btn" id="lightbox-next" aria-label="Следующее фото">›</button>
+            
+            <div class="lightbox-wrapper">
+                <div class="lightbox-image-box">
+                    <img src="" alt="" id="lightbox-img">
+                </div>
+                <div class="lightbox-info">
+                    <span class="lightbox-counter" id="lightbox-counter">1 из 4</span>
+                    <p class="lightbox-caption" id="lightbox-caption" style="display:none;"></p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer id="contacts" class="site-footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <div class="logo"><span class="logo-accent">ИС</span>ИТ</div>
+                <p class="footer-copyright">© 2013–2026 ООО «ИСИТ»<br>Все права защищены.</p>
+            </div>
+
+            <div class="footer-partners-block">
+                <h4>Наши партнеры:</h4>
+                <div class="partners-flex-group">
+                    <div class="partner-img-item">
+                        <img src="Фото/v_tax.png" alt="ФСИН России" onerror="this.src='Фото/v_tax.png'">
+                    </div>
+                    <div class="partner-img-item">
+                        <img src="Фото/cocos.png" alt="К.К.С" onerror="this.src='Фото/cocos.png'">
+                    </div>
+                    <div class="partner-img-item">
+                        <img src="Фото/energorezim_s.png" alt="Энергорежим.рф" onerror="this.src='Фото/energorezim_s.png'">
+                    </div>
+                    <div class="partner-img-item">
+                        <img src="Фото/logo_rosnavy.png" alt="Роснави" onerror="this.src='Фото/logo_rosnavy.png'">
+                    </div>
+                </div>
+                
+                <div class="partner-text-bottom">
+                    <a href="https://videosvidanie.ru" target="_blank" class="partner-text-link">Сайт "Видеосвидание"</a>
+                </div>
+            </div>
+
+            <div class="footer-contacts">
+                <h4>Контакты</h4>
+                <div class="contacts-list">
+                  <div class="contact-row">
+    <span class="contact-icon">📍</span>
+    <p><a href="https://yandex.ru/maps/?text=Пермь, ул. Чернышевского, д. 5" target="_blank" style="color: inherit; text-decoration: none;">г. Пермь, ул. Чернышевского, д. 5</a></p>
+</div>
+                    <div class="contact-row">
+                        <span class="contact-icon">✉️</span>
+                        <p><a href="mailto:ist@ist.perm.ru">ist@ist.perm.ru</a></p>
+                    </div>
+                    <div class="contact-row">
+                        <span class="contact-icon">📞</span>
+                        <p><a href="tel:+73422160061">+7 (342) 216-00-61</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="search-global.js"></script>
+</body>
+</html>

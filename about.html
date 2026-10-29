@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании | ООО ИСИТ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="header-left">
+                <button class="burger-menu-btn" id="open-sidebar" aria-label="Открыть меню">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="logo"><span class="logo-accent">ИС</span>ИТ</div>
+            </div>
+            
+            <nav class="main-nav">
+                <a href="index.html">Главная</a>
+                <a href="news.html">Новости</a>
+                <a href="about.html">О компании</a>
+                <a href="gallery.html">Галерея</a>
+                <a href="uslugi.html">Услуги</a>
+                <a href="product.html">Продукция</a>
+            </nav>
+            
+            <div class="header-right-controls">
+                <button class="icon-btn" id="btn-search-open" title="Поиск на сайте">🔍</button>
+                <button class="icon-btn" id="btn-question-open" title="Задать вопрос">❓</button>
+                <a href="tel:+73422160061" class="header-phone">+7 (342) 216-00-61</a>
+                <button class="accent-btn" id="btn-call-top">Заказать звонок</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+    <aside class="site-sidebar" id="site-sidebar">
+        <div class="sidebar-header">
+            <div class="logo"><span class="logo-accent">ИС</span>ИТ</div>
+            <button class="close-sidebar-btn" id="close-sidebar" aria-label="Закрыть меню">✕</button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="index.html">Главная</a>
+            <a href="news.html">Новости</a>
+            <a href="about.html">О компании</a>
+            <a href="gallery.html">Галерея</a>
+            <a href="uslugi.html">Услуги</a>
+            <a href="product.html">Продукция</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="accent-btn sidebar-call-btn" id="btn-call-sidebar">Заказать звонок</button>
+            <a href="tel:+73422160061" class="sidebar-phone">+7 (342) 216-00-61</a>
+          <p class="sidebar-address">
+    📍 <a href="https://yandex.ru/maps/?text=Пермь, ул. Чернышевского, д. 5" target="_blank" style="color: inherit; text-decoration: none;">г. Пермь, ул. Чернышевского, д. 5</a>
+</p>
+            <p class="sidebar-email" href="mailto:ist@ist.perm.ru">✉️ ist@ist.perm.ru</p>
+        </div>
+    </aside>
+
+    <div class="modal-overlay" id="modal-call">
+        <div class="modal-window">
+            <button class="modal-close">✕</button>
+            <h3>Заказать звонок</h3>
+            <p>Представьтесь, мы вам перезвоним.</p>
+            <form id="form-call">
+                <div class="input-group">
+                    <label>Ваше имя *</label>
+                    <input type="text" name="name" required placeholder="Иван Иванов">
+                </div>
+                <div class="input-group">
+                    <label>Телефон *</label>
+                    <input type="tel" name="phone" required placeholder="+7 (999) 000-00-00">
+                </div>
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-question">
+        <div class="modal-window">
+            <button class="modal-close">✕</button>
+            <h3>Задать вопрос</h3>
+            <p>Менеджеры компании с радостью ответят на ваши вопросы.</p>
+            <form id="form-question">
+                <div class="input-group">
+                    <label>Ваше имя *</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label>Телефон *</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" name="email">
+                </div>
+                <div class="input-group">
+                    <label>Сообщение *</label>
+                    <textarea name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-search">
+        <div class="modal-window search-window">
+            <button class="modal-close">✕</button>
+            <h3>Поиск по сайту</h3>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Введите ключевое слово (например: СКУД, связь)...">
+                <button id="btn-search-execute" class="submit-btn">Найти</button>
+            </div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+
+<main class="about-page-main">
+        <section class="about-section">
+            <div class="section-container article-max-width">
+                <span class="badge">История и надежность</span>
+                <h1 class="page-title">О компании</h1>
+                
+                <div class="about-content-text">
+                    <p>ЗАО «Интеллектуальные системы и технологии» работает на телекоммуникационном рынке с 1999 года и является лидирующей Российской фирмой по поставкам таксофонного оборудования, технических центров управления абонентскими терминалами, чиповых карт и скретч-карт.</p>
+                    
+                    <p>С 2006 наша компания выбрана основным поставщиком оборудования для осуществления федеральной программы Министерства информационных технологий и связи РФ – «Универсальные услуги связи». В рамках данной программы ЗАО «Интеллектуальные системы и технологии» разработаны и успешно поставляются линейные, спутниковые (IP), GSM- и CDMA-таксофоны, а также интернет-терминалы для пунктов коллективного доступа в интернет (ПКД).</p>
+                    
+                    <p>За годы работы мы произвели поставку более 50 000 единиц оборудования, более 22 миллионов чиповых и скретч-карт, а также установку технических центров управления в 50 городах России. Только в рамках федеральной программы «Универсальная услуга связи» нами было поставлено 30 000 единиц таксофонного оборудования, более 7 000 терминалов доступа в Интернет и запущено 33 региональных центра управления таксофонным и терминальным оборудованием.</p>
+                </div>
+
+                <div class="about-maps-grid">
+                    <div class="about-map-item">
+                        <img src="Фото/geo_payphone.png" alt="География поставок таксофонного оборудования" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'60\' viewBox=\'0 0 100 60\'><rect width=\'100%\' height=\'100%\' fill=\'%231f2937\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%239ca3af\' font-size=\'8\'>Карта 1</text></svg>'">
+                        <span>География поставок таксофонного оборудования</span>
+                    </div>
+                    <div class="about-map-item">
+                        <img src="Фото/geo_terminals.png" alt="География поставок терминальной периферии" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'60\' viewBox=\'0 0 100 60\'><rect width=\'100%\' height=\'100%\' fill=\'%231f2937\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%239ca3af\' font-size=\'8\'>Карта 2</text></svg>'">
+                        <span>География поставок терминалов и тарификаторов</span>
+                    </div>
+                    <div class="about-map-item">
+                        <img src="Фото/geo_sdukt.png" alt="География центров управления СУКТ и СТ" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'60\' viewBox=\'0 0 100 60\'><rect width=\'100%\' height=\'100%\' fill=\'%231f2937\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%239ca3af\' font-size=\'8\'>Карта 3</text></svg>'">
+                        <span>География центров управления СДУКТ-ИСТ</span>
+                    </div>
+                </div>
+
+                <div class="about-content-text text-bottom-part">
+                    <p>Нашими заказчиками являются ОАО «Уралсвязьинформ», ОАО «Дальсвязь», ОАО «Сибирьтелеком», ОАО «Башинформсвязь», ОАО «Таттелеком» и ОАО «Волгателеком», ОАО «Центртелеком», ЗАО «Веб Медиа Сервисез», ТД «Евросеть», ОАО «МТТ» и др.</p>
+                    
+                    <p>Мы осуществляем гарантийное и послегарантийное обслуживание оборудования, организацию ремонта и поставки запасных частей, а также модернизацию оборудования предыдущих версий c целью обеспечения возможности работы в новых современных системах связи.</p>
+                    
+                    <p>Благодаря нашей направленности на желания и потребности клиента, мы являемся надежным деловым партнером.</p>
+                    
+                    <blockquote class="about-motto">
+                        <strong>Наш стиль работы:</strong> компетентно, серьезно и надежно.
+                    </blockquote>
+                </div>
+
+                <div class="download-container">
+                    <a href="#" class="download-document-link" onclick="event.preventDefault(); alert('Файл подготавливается к загрузке...');">
+                        <span class="download-icon">📄</span>
+                        <div class="download-text-wrapper">
+                            <span class="download-title">Правила ведения реестра владельцев именных ценных бумаг ЗАО «Интеллектуальные системы и технологии»</span>
+                            <span class="download-meta">Формат: PDF • Размер: 1.2 Мб (Ссылка временно неактивна)</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="lightbox-overlay" id="lightbox-overlay" aria-hidden="true">
+            <button class="lightbox-close-btn" id="lightbox-close" aria-label="Закрыть">✕</button>
+            
+            <button class="lightbox-nav-btn prev-btn" id="lightbox-prev" aria-label="Предыдущее фото">‹</button>
+            <button class="lightbox-nav-btn next-btn" id="lightbox-next" aria-label="Следующее фото">›</button>
+            
+            <div class="lightbox-wrapper">
+                <div class="lightbox-image-box">
+                    <img src="" alt="" id="lightbox-img">
+                </div>
+                <div class="lightbox-info">
+                    <span class="lightbox-counter" id="lightbox-counter">1 из 3</span>
+                    <p class="lightbox-caption" id="lightbox-caption">Описание карты</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contacts" class="site-footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <div class="logo"><span class="logo-accent">ИС</span>ИТ</div>
+                <p class="footer-copyright">© 2013–2026 ООО «ИСИТ»<br>Все права защищены.</p>
+            </div>
+
+            <div class="footer-partners-block">
+                <h4>Наши партнеры:</h4>
+                <div class="partners-flex-group">
+                    <div class="partner-img-item">
+                        <img src="Фото/v_tax.png" alt="ФСИН России" onerror="this.src='Фото/v_tax.png'">
+                    </div>
+                    <div class="partner-img-item">
+                        <img src="Фото/cocos.png" alt="К.К.С" onerror="this.src='Фото/cocos.png'">
+                    </div>
+                    <div class="partner-img-item">
+                        <img src="Фото/energorezim_s.png" alt="Энергорежим.рф" onerror="this.src='Фото/energorezim_s.png'">
+                    </div>
+                    <div class="partner-img-item">
+                        <img src="Фото/logo_rosnavy.png" alt="Роснави" onerror="this.src='Фото/logo_rosnavy.png'">
+                    </div>
+                </div>
+                
+                <div class="partner-text-bottom">
+                    <a href="https://videosvidanie.ru" target="_blank" class="partner-text-link">Сайт "Видеосвидание"</a>
+                </div>
+            </div>
+
+            <div class="footer-contacts">
+                <h4>Контакты</h4>
+                <div class="contacts-list">
+              <div class="contact-row">
+    <span class="contact-icon">📍</span>
+    <p><a href="https://yandex.ru/maps/?text=Пермь, ул. Чернышевского, д. 5" target="_blank" style="color: inherit; text-decoration: none;">г. Пермь, ул. Чернышевского, д. 5</a></p>
+</div>
+                    <div class="contact-row">
+                        <span class="contact-icon">✉️</span>
+                        <p><a href="mailto:ist@ist.perm.ru">ist@ist.perm.ru</a></p>
+                    </div>
+                    <div class="contact-row">
+                        <span class="contact-icon">📞</span>
+                        <p><a href="tel:+73422160061">+7 (342) 216-00-61</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="search-global.js"></script>
+</body>
+</html>

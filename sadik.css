@@ -1,0 +1,346 @@
+/* ==========================================================================
+   ОБЩИЕ СТИЛИ КОНТЕЙНЕРА И СЕТКИ НОВОСТЕЙ
+   ========================================================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px; /* Синхронизировано с твоим основным контейнером */
+}
+
+/* Сетка карточек на главной ленте новостей */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 30px; /* Идеальный шаг сетки как в основном стиле */
+    margin-bottom: 30px;
+}
+
+/* ==========================================================================
+   СТИЛИ КАРТОЧЕК НОВОСТЕЙ (Интеграция с основным UI)
+   ========================================================================== */
+.news-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.15); /* Твой благородный синий свет */
+}
+
+.card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-info {
+    padding: 30px; /* Просторные отступы как на главной */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-date {
+    font-size: 0.85rem;
+    color: var(--accent); /* Дата теперь акцентная синяя, стильно */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.card-title {
+    margin: 0 0 14px 0;
+    font-size: 1.3rem;
+    color: #ffffff;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.card-excerpt {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+/* Кнопка "Подробнее" внутри карточки */
+.card-btn {
+    margin-top: auto;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.card-btn:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+/* ==========================================================================
+   КНОПКИ УПРАВЛЕНИЯ ЛЕНТОЙ (Показать все / Перейти к ленте)
+   ========================================================================== */
+.more-btn-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-primary {
+    background-color: var(--bg-card);
+    color: #ffffff;
+    border: 1px solid var(--border-color);
+    padding: 14px 32px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    border-color: var(--accent);
+    background-color: var(--border-color);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
+}
+
+/* ==========================================================================
+   ИНТЕРФЕЙС ПРОСМОТРА СТАТЬИ (Фирменный Тёмно-Синий Ридер)
+   ========================================================================== */
+.news-reader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-main); /* Глубокий синий фон вместо серого */
+    z-index: 3500;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.news-reader-overlay.active {
+    transform: translateX(0);
+}
+
+/* Шапка ридера */
+.reader-header {
+    height: 75px;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+/* Интерактивная Кнопка "Назад к списку" / "Назад на главную" с микро-анимацией стрелки */
+.close-reader-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease;
+}
+
+/* Эффект проявления и смещения стрелки при наведении */
+.close-reader-btn:hover {
+    color: var(--accent);
+}
+
+.close-reader-btn span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.close-reader-btn:hover span {
+    transform: translateX(-4px); /* Стрелочка плавно подталкивается влево */
+}
+
+/* Кастомизация выпадающего списка категорий (Селекта) под общий стиль */
+.reader-category-select select {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 10px 35px 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+    
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    /* Красивая стрелочка выпадающего списка */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+}
+
+.reader-category-select select:hover {
+    border-color: var(--text-muted);
+}
+
+.reader-category-select select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+/* Рабочая зона ридера */
+.reader-body {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* Боковая панель со списком статей в ридере */
+.reader-sidebar {
+    width: 360px;
+    background-color: #090d16; /* Чуть темнее основного фона для контраста */
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+    padding: 24px 16px;
+}
+
+/* Элементы списка в боковой панели */
+.sidebar-item {
+    display: flex;
+    gap: 15px;
+    padding: 14px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-bottom: 12px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.sidebar-item:hover {
+    background-color: var(--bg-card);
+}
+
+/* Активное состояние выбранной статьи в левом блоке */
+.sidebar-item.active {
+    background-color: var(--bg-card);
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: inset 4px 0 0 var(--accent); /* Четкий синий маркер слева */
+}
+
+.sidebar-thumb {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.sidebar-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidebar-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+    transition: color 0.2s ease;
+}
+
+.sidebar-item.active .sidebar-title {
+    color: var(--accent); /* Подсвечиваем текст активной статьи синим */
+}
+
+.sidebar-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Основной блок чтения открытой статьи */
+.reader-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 40px;
+    background-color: var(--bg-main);
+}
+
+.article-max-width {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.article-main-img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    margin-bottom: 30px;
+}
+
+.article-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+}
+
+.article-meta {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+    display: flex;
+    gap: 15px;
+}
+
+.article-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
+   ========================================================================== */
+@media (max-width: 768px) {
+    .reader-body {
+        flex-direction: column;
+    }
+    .reader-sidebar {
+        width: auto;
+        height: 220px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .article-title {
+        font-size: 1.8rem;
+    }
+}

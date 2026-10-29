@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости | ООО ИСИТ</title>
+    <link rel="stylesheet" href="style.css">   <link rel="stylesheet" href="sadik.css">  </head>
+<body>
+
+ <header class="site-header">
+        <div class="header-container">
+            <div class="header-left">
+                <button class="burger-menu-btn" id="open-sidebar" aria-label="Открыть меню">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="logo"><span class="logo-accent">ИС</span>ИТ</div>
+            </div>
+            
+            <nav class="main-nav">
+                <a href="index.html">Главная</a>
+                <a href="news.html">Новости</a> 
+                <a href="about.html">О компании</a>
+                <a href="gallery.html">Галерея</a>
+                <a href="uslugi.html">Услуги</a>
+                <a href="product.html">Продукция</a>
+            </nav>
+            
+            <div class="header-right-controls">
+                <button class="icon-btn" id="btn-search-open" title="Поиск на сайте">🔍</button>
+                <button class="icon-btn" id="btn-question-open" title="Задать вопрос">❓</button>
+                <a href="tel:+73422160061" class="header-phone">+7 (342) 216-00-61</a>
+                <button class="accent-btn" id="btn-call-top">Заказать звонок</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+    <aside class="site-sidebar" id="site-sidebar">
+        <div class="sidebar-header">
+            <div class="logo"><span class="logo-accent">ИС</span>ИТ</div>
+            <button class="close-sidebar-btn" id="close-sidebar" aria-label="Закрыть меню">✕</button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="index.html">Главная</a>
+            <a href="news.html">Новости</a>
+             <a href="about.html">О компании</a>
+            <a href="gallery.html">Галерея</a>
+            <a href="uslugi.html">Услуги</a>
+            <a href="product.html">Продукция</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="accent-btn sidebar-call-btn" id="btn-call-sidebar">Заказать звонок</button>
+            <a href="tel:+73422160061" class="sidebar-phone">+7 (342) 216-00-61</a>
+         <p class="sidebar-address">
+    📍 <a href="https://yandex.ru/maps/?text=Пермь, ул. Чернышевского, д. 5" target="_blank" style="color: inherit; text-decoration: none;">г. Пермь, ул. Чернышевского, д. 5</a>
+</p>
+            <p class="sidebar-email" href="mailto:ist@ist.perm.ru">✉️ ist@ist.perm.ru</p>
+        </div>
+    </aside>
+
+    <div class="modal-overlay" id="modal-call">
+        <div class="modal-window">
+            <button class="modal-close">✕</button>
+            <h3>Заказать звонок</h3>
+            <p>Представьтесь, мы вам перезвоним.</p>
+            <form id="form-call">
+                <div class="input-group">
+                    <label>Ваше имя *</label>
+                    <input type="text" name="name" required placeholder="Иван Иванов">
+                </div>
+                <div class="input-group">
+                    <label>Телефон *</label>
+                    <input type="tel" name="phone" required placeholder="+7 (999) 000-00-00">
+                </div>
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-question">
+        <div class="modal-window">
+            <button class="modal-close">✕</button>
+            <h3>Задать вопрос</h3>
+            <p>Менеджеры компании с радостью ответят на ваши вопросы.</p>
+            <form id="form-question">
+                <div class="input-group">
+                    <label>Ваше имя *</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label>Телефон *</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" name="email">
+                </div>
+                <div class="input-group">
+                    <label>Сообщение *</label>
+                    <textarea name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-search">
+        <div class="modal-window search-window">
+            <button class="modal-close">✕</button>
+            <h3>Поиск по сайту</h3>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Введите ключевое слово (например: СКУД, связь)...">
+                <button id="btn-search-execute" class="submit-btn">Найти</button>
+            </div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+
+
+
+    <section class="hero-section" style="padding-top: 120px; min-height: 70px;">
+            
+        <div class="container">
+            <span class="badge" style="display: block; width: max-content; margin: 0 auto 15px auto; text-align: center;">Новости</span>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 40px; font-size: 2.5rem;">Новости компании</h2>
+            
+            <div class="news-grid" id="main-news-grid"></div>
+
+            <div class="more-btn-container">
+                <button class="btn-primary" id="load-all-news-btn">Показать все новости</button>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <div class="news-reader-overlay" id="news-reader">
+        <div class="reader-header">
+            <button class="close-reader-btn" id="close-reader">← Назад к списку</button>
+            <div class="reader-category-select">
+                <select id="category-filter">
+                    <option value="all">Все темы</option>
+                    <option value="tech">Технологии</option>
+                    <option value="events">Мероприятия</option>
+                    <option value="updates">Обновления</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="reader-body">
+            <aside class="reader-sidebar" id="sidebar-news-list"></aside>
+            <main class="reader-content" id="active-article-content"></main>
+        </div>
+    </div>
+    
+<footer id="contacts" class="site-footer">
+    <div class="footer-container">
+        
+        <div class="footer-info">
+            <div class="logo"><span class="logo-accent">ИС</span>ИТ</div>
+            <p class="footer-copyright">© 2013–2026 ООО «ИСИТ»<br>Все права защищены.</p>
+        </div>
+
+        <div class="footer-partners-block">
+            <h4>Наши партнеры:</h4>
+            <div class="partners-flex-group">
+                <div class="partner-img-item">
+                    <img src="Фото/v_tax.png" alt="ФСИН России" onerror="this.src='Фото/v_tax.png'">
+                </div>
+                <div class="partner-img-item">
+                    <img src="Фото/cocos.png" alt="К.К.С" onerror="this.src='Фото/cocos.png'">
+                </div>
+                <div class="partner-img-item">
+                    <img src="Фото/energorezim_s.png" alt="Энергорежим.рф" onerror="this.src='Фото/energorezim_s.png'">
+                </div>
+                <div class="partner-img-item">
+                    <img src="Фото/logo_rosnavy.png" alt="Роснави" onerror="this.src='Фото/logo_rosnavy.png'">
+                </div>
+            </div>
+            
+            <div class="partner-text-bottom">
+                <a href="https://videosvidanie.ru" target="_blank" class="partner-text-link">Сайт "Видеосвидание"</a>
+            </div>
+        </div>
+
+        <div class="footer-contacts">
+            <h4>Контакты</h4>
+            <div class="contacts-list">
+            <div class="contact-row">
+    <span class="contact-icon">📍</span>
+    <p><a href="https://yandex.ru/maps/?text=Пермь, ул. Чернышевского, д. 5" target="_blank" style="color: inherit; text-decoration: none;">г. Пермь, ул. Чернышевского, д. 5</a></p>
+</div>
+                <div class="contact-row">
+                    <span class="contact-icon">✉️</span>
+                    <p><a href="mailto:ist@ist.perm.ru">ist@ist.perm.ru</a></p>
+                </div>
+                <div class="contact-row">
+                    <span class="contact-icon">📞</span>
+                    <p><a href="tel:+73422160061">+7 (342) 216-00-61</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</footer>
+    <script src="news.js"></script>
+    <script src="script.js"></script> 
+    <script src="search-global.js"></script>
+</body>
+</html>
